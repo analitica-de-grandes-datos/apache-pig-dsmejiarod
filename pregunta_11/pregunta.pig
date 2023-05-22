@@ -41,6 +41,6 @@ quantity: INT);
 transformed_surnames = FOREACH u GENERATE surname AS original_surname, 
 UPPER(surname) AS uppercase_surname, LOWER(surname) AS lowercase_surname;
 sorted_surnames = ORDER transformed_surnames BY original_surname ASC;
-STORE limited_surnames INTO 'output' USING PigStorage (',');
+STORE sorted_surnames INTO 'output' USING PigStorage (',');
 
 

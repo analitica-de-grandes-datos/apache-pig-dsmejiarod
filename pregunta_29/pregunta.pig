@@ -48,5 +48,5 @@ WHEN '10' THEN 'oct' WHEN '11' THEN 'nov' WHEN '12' THEN 'dic'
 ELSE 'unk' END
 AS mes_letras,
 ToString(ToDate(birthday, 'yyyy-MM-dd'), 'MM') AS mes_numeros,
-REPLACE(ToString(ToDate(birthday, 'yyyy-MM-dd'), 'MM'), '0', '') AS mes_numeros_sin_ceros;
+REPLACE(ToString(ToDate(birthday, 'yyyy-MM-dd'), 'MM'), '^0', '') AS mes_numeros_sin_ceros;
 STORE formatted_dates INTO 'output' USING PigStorage(',');

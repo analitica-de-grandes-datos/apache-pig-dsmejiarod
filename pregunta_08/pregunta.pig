@@ -16,6 +16,7 @@ $ pig -x local -f pregunta.pig
 
         >>> Escriba su respuesta a partir de este punto <<<
 */
+
 data = LOAD 'data.tsv' AS (letter:CHARARRAY, dicc:bag{}, dicc:map[]);
 result = FOREACH data GENERATE  FLATTEN(dicc) AS (claved:CHARARRAY),FLATTEN(mapa) AS (clavec:CHARARRAY);
 GRUPO = GROUP result BY (claved,clavec);

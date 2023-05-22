@@ -31,6 +31,6 @@ quantity: INT);
 
 data = FOREACH u GENERATE color;
 
-data = FILTER data BY color MATCHES '^b.*';
+filtrado = FILTER data BY color MATCHES '^b.*';
 
-STORE data INTO 'output' USING PigStorage (',');
+STORE filtrado INTO 'output' USING PigStorage (',');

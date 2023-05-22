@@ -34,4 +34,4 @@ color: CHARARRAY,
 quantity: INT);
 surnames = FOREACH u GENERATE surname;
 filtered_surnames = FILTER surnames BY SUBSTRING(surname, 0, 1) MATCHES '[d-kD-K]';
-STORE limited_surnames INTO 'output' USING PigStorage (',');
+STORE filtered_surnames INTO 'output' USING PigStorage (',');

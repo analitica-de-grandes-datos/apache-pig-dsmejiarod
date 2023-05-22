@@ -44,13 +44,13 @@ quantity: INT);
 formatted_dates = FOREACH u GENERATE birthday AS fecha,
 GetDay(ToDate(birthday, 'yyyy-MM-dd')) AS dia_semana_numero,
 Case ToString(ToDate(birthday,'yyyy-MM-dd'), 'EEE')
-When 'Sun' THEN 'Dom' When 'Mon' THEN 'Lun' When 'Tue' THEN 'Mar'
-When 'Wed' THEN 'Mie' When 'Thu' THEN 'Jue' When 'Fri' THEN 'Vie'
-When 'Sat' THEN 'Sab' End AS dia_semana_abreviatura,
+When 'Sun' THEN 'dom' When 'Mon' THEN 'lun' When 'Tue' THEN 'mar'
+When 'Wed' THEN 'mie' When 'Thu' THEN 'jue' When 'Fri' THEN 'vie'
+When 'Sat' THEN 'sab' End AS dia_semana_abreviatura,
 Case ToString(ToDate(birthday,'yyyy-MM-dd'), 'EEE')
-When 'Sun' THEN 'Domingo' When 'Mon' THEN 'Lunes' When 'Tue' THEN 'Martes'
-When 'Wed' THEN 'Miércoles' When 'Thu' THEN 'Jueves' When 'Fri' THEN 'Viernes'
-When 'Sat' THEN 'Sábado' End AS dia_semana_completo;
+When 'Sun' THEN 'domingo' When 'Mon' THEN 'lunes' When 'Tue' THEN 'martes'
+When 'Wed' THEN 'miercoles' When 'Thu' THEN 'jueves' When 'Fri' THEN 'viernes'
+When 'Sat' THEN 'sábado' End AS dia_semana_completo;
 
 STORE formatted_dates INTO 'output' USING PigStorage(',');
 
