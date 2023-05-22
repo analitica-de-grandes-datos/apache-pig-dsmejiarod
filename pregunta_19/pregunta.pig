@@ -28,6 +28,6 @@ surname: CHARARRAY,
 birthday: CHARARRAY,
 color: CHARARRAY,
 quantity: INT); 
-filtered_data = FILTER u BY SUBSTRING(LOWER(color), 0, 1) == 'b';
-result = FOREACH filtered_data GENERATE firstname, color;
-STORE result INTO 'output' USING PigStorage(',');
+cols = FOREACH u GENERATE firstname, color;
+filtered_data = FILTER cols BY SUBSTRING(LOWER(color), 0, 1) == 'b';
+STORE filtered_data INTO 'output' USING PigStorage(',');
