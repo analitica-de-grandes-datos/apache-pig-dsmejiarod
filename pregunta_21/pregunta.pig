@@ -27,6 +27,6 @@ surname: CHARARRAY,
 birthday: CHARARRAY,
 color: CHARARRAY,
 quantity: INT); 
-filtered_data = FILTER u BY color != 'blue' OR color != 'green';
+filtered_data = FILTER u BY color == 'blue' OR color == 'green';
 result = FOREACH filtered_data GENERATE firstname, color;
 STORE result INTO 'output' USING PigStorage(',');

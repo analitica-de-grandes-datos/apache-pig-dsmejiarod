@@ -42,7 +42,7 @@ color: CHARARRAY,
 quantity: INT); 
 
 formatted_dates = FOREACH u GENERATE birthday AS fecha,
-GetDay(ToDate(birthday, 'yyyy-MM-dd')) AS dia_semana_numero,
+SUBSTRING(birthday,8,10) AS dia_semana_numero,
 Case ToString(ToDate(birthday,'yyyy-MM-dd'), 'EEE')
 When 'Sun' THEN 'dom' When 'Mon' THEN 'lun' When 'Tue' THEN 'mar'
 When 'Wed' THEN 'mie' When 'Thu' THEN 'jue' When 'Fri' THEN 'vie'
