@@ -27,5 +27,5 @@ birthday: CHARARRAY,
 color: CHARARRAY,
 quantity: INT); 
 col = FOREACH u GENERATE firstname, color;
-filtered_data = FILTER col BY color != 'blue' OR color != 'black';
+filtered_data = FILTER col BY color != 'blue' AND color != 'black';
 STORE filtered_data INTO 'output' USING PigStorage(',');
