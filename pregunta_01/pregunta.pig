@@ -11,7 +11,8 @@ evaluación, pig sera eejcutado ejecutado en modo local:
 $ pig -x local -f pregunta.pig
 
         >>> Escriba su respuesta a partir de este punto <<<
-        
+*/
+
 data = LOAD 'data.tsv' AS (letter:CHARARRAY, date:CHARARRAY, number:INT);
 letters = FOREACH data GENERATE letter;
 group_by = GROUP letters BY letter;
